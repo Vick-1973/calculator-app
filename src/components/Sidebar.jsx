@@ -14,7 +14,7 @@ const Sidebar = () => {
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
   const handleCloseSidebar = () => {
-    if(activeMenu || screenSize <= 900){
+    if(activeMenu){
       setActiveMenu(false);
     }
   }
@@ -26,8 +26,8 @@ const Sidebar = () => {
           <Link to="/" onClick={handleCloseSidebar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <img src={logo} className="w-10" /><span>Rotas</span>
           </Link>
-          <TooltipComponent content="Menu" position="BottomCenter">
-            <button type="button" onClick={() => setActiveMenu(false)} style={{ color: 'rgb(50, 50, 50)', borderRadius: '50%' }} className="text-2xl p-3 mt-4 hover:drop-shadow-xl hover:bg-light-gray">
+          <TooltipComponent content="Close" position="BottomCenter">
+            <button type="button" onClick={() => setActiveMenu(false)} style={{ color: 'rgb(153, 171, 180)', borderRadius: '50%' }} className="text-2xl p-3 mt-4 hover:drop-shadow-xl hover:bg-light-gray">
               <MdOutlineCancel />
             </button>
           </TooltipComponent>
