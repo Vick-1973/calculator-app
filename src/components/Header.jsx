@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = ({ title }) => {
   return (
-    <div className="mb-10">
+    <div className="mb-5">
         <p className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {title}
         </p>

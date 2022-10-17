@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStateContext } from '../contexts/ContextProvider';
 import { Header } from '../components';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 //El propio programa si funciona, nada mas hay que recoger los datos
 
@@ -51,6 +51,7 @@ const Calculator = () => {
   const [compresion, setCompresion] = useState('');
   const [angulo, setAngulo] = useState('');
 
+
   const submissionHandler = (e) => {
     e.preventDefault();
     m = Number(masa);
@@ -79,39 +80,41 @@ const Calculator = () => {
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 dark:bg-gray-800 bg-white rounded-xl">
       <Header title="Calculator" />
+      <hr /><br />
+      <div className="block bg-white w-40 float-left">
       <form onSubmit={submissionHandler} ref={Form}>
       <div class="relative z-0 w-40">
-        <input required autoComplete="off" type="text" id="masa" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setMasa(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input required autoComplete="off" type="text" id="masa" class="block py-2.5 px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setMasa(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" style={{color: currentColor}}>Masa</label>
         </div>
         <br />
 
         <div class="relative z-0 w-40">
-        <input required autoComplete="off" type="text" id="gravedad" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setGravedad(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input required autoComplete="off" type="text" id="gravedad" class="block py-2.5 px-0  text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setGravedad(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" style={{color: currentColor}}>Gravedad (-)</label>
         </div>
         <br />
 
         <div class="relative z-0 w-40">
-        <input required autoComplete="off" type="text" id="constante" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setConstante(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input required autoComplete="off" type="text" id="constante" class="block py-2.5 px-0  text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setConstante(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" style={{color: currentColor}}>Constante</label>
         </div>
         <br />
 
         <div class="relative z-0 w-40">
-        <input required autoComplete="off" type="text" id="hef" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setHf(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input required autoComplete="off" type="text" id="hef" class="block py-2.5 px-0  text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setHf(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" style={{color: currentColor}}>Altura del objetivo</label>
         </div>
         <br />
 
         <div class="relative z-0 w-40">
-        <input required autoComplete="off" type="text" id="he0" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setH0(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input required autoComplete="off" type="text" id="he0" class="block py-2.5 px-0  text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setH0(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" style={{color: currentColor}}>Altura del disparador</label>
         </div>
         <br />
 
         <div class="relative z-0 w-40">
-        <input required autoComplete="off" type="text" id="distancia" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input required autoComplete="off" type="text" id="distancia" class="block py-2.5 px-0  text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" style={{color: currentColor}}>Distancia horizontal</label>
         </div>
 
@@ -123,17 +126,18 @@ const Calculator = () => {
 
         <div>
         <div class="relative z-0 w-40">
-        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5 w-full text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={angulo} placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={angulo} placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Angulo </pre></label>
         </div>
         <br />
         <div class="relative z-0 w-40">
-        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5 w-full text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={compresion} placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
+        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={compresion} placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Compresión </pre></label>
         </div>
         </div>
         <br />
       </form>
+      </div>
     </div>
   )
 }
