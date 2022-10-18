@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import functionPlot from 'function-plot'
 import { setVirtualPageQuery } from '@syncfusion/ej2-react-grids';
 
-let m, g, k, L, hf, h0, h, t, vix, viy, vi, a, x, maxh, showG = true;
+let m, g, k, L, hf, h0, h, t, vix, viy, vi, a, x, maxh;
 let x1, x2;
 
 function safetyCheck(){
@@ -154,10 +154,12 @@ const Calculator = () => {
 
 
   return (
-    <div className="m-2 md:m-10 p-2 md:p-10 dark:bg-gray-800 bg-white rounded-xl" style={{height:Number(he) * 0.73}}>
+    <div className="m-2 md:m-10 p-2 md:p-10 dark:bg-gray-800 bg-white rounded-xl flex" style={{}}>
+      <div className="absolute ">
       <Header title="Calculator" />
-      <hr /><br />
-      <div className="block float-left">
+      <hr className=""/>
+      </div>
+      <div className="float-left relative mt-20">
       <form onSubmit={submissionHandler} ref={Form}>
       <div class="relative z-0 w-40">
         <input required autoComplete="off" type="text" id="masa" class="block py-2.5 px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " onChange={(e) => {setMasa(e.target.value)}} style={{borderColor: currentColor}}/>
@@ -201,12 +203,12 @@ const Calculator = () => {
         <br /><br />
 
         <div>
-        <div class="relative z-0 w-40">
+        <div class="relative z-0 w-30">
         <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={angulo} placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Angulo </pre></label>
         </div>
         <br />
-        <div class="relative z-0 w-40">
+        <div class="relative z-0 w-30">
         <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={compresion} placeholder=" " onChange={(e) => {setDistancia(e.target.value)}} style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Compresión </pre></label>
         </div>
@@ -214,27 +216,27 @@ const Calculator = () => {
         <br />
       </form>
       </div>
-      <div className="float-right">
-      <div id="cosita" className="bg-white rounded-lg dark:bg-gray-200 dark:bg-gray-" style={{borderColor: currentColor, borderWidth: (activeGraph ? "2px" : "0px")}}></div>
+      <div className="float-right mt-20">
+      <div id="cosita" className="bg-white rounded-lg dark:bg-gray-200 dark:bg-gray- float-right" style={{borderColor: currentColor, borderWidth: (activeGraph ? "2px" : "0px"), width: width}}></div>
       <div className="float-right flex relative top-8">
-        <div class="relative w-40 mx-10">
-        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={VI} placeholder=" " style={{borderColor: currentColor}}/>
-          <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Velocidad inicial </pre></label>
+        <div class="relative w-20 mx-5">
+        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-3 w-20 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={VI} placeholder=" " style={{borderColor: currentColor}}/>
+          <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Vi </pre></label>
         </div>
-        <div class="relative w-40 mx-10">
-        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={VIX} placeholder=" " style={{borderColor: currentColor}}/>
+        <div class="relative w-20 mx-5">
+        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-3 w-20 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={VIX} placeholder=" " style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> ViX </pre></label>
         </div>
-        <div class="relative w-40 mx-10">
-        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={VIY} placeholder=" " style={{borderColor: currentColor}}/>
+        <div class="relative w-20 mx-5">
+        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-4 w-20 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={VIY} placeholder=" " style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> ViY </pre></label>
         </div>
-        <div class="relative w-40 mx-10">
-        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={T} placeholder=" " style={{borderColor: currentColor}}/>
+        <div class="relative w-20 mx-5">
+        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-4 w-20 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={T} placeholder=" " style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Tiempo </pre></label>
         </div>
-        <div class="relative w-40 mx-10">
-        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-5  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={H} placeholder=" " style={{borderColor: currentColor}}/>
+        <div class="relative w-20 mx-5">
+        <input disabled="true" autoComplete="off" type="text" id="distancia" class="block py-2.5 px-3 w-20 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 peer" value={H} placeholder=" " style={{borderColor: currentColor}}/>
           <label for="floating_standard" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 left-2 -z-15 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 bg-white dark:bg-slate-800" style={{color: currentColor}}><pre> Δy </pre></label>
         </div>
       </div>
