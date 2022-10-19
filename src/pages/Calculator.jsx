@@ -67,12 +67,12 @@ const Calculator = () => {
     h0 = Number(he0);
     L = Number(distancia);
     solve1();
-    a *= 1000; a = Math.trunc(a); a /= 1000;
-    x *= 1000; x = Math.trunc(x); x /= 1000;
-    vi *= 1000; vi = Math.trunc(vi); vi /= 1000;
-    viy *= 1000; viy = Math.trunc(viy); viy /= 1000;
-    vix *= 1000; vix = Math.trunc(vix); vix /= 1000;
-    t *= 1000; t = Math.trunc(t); t /= 1000;
+    a *= 100; a = Math.trunc(a); a /= 100;
+    x *= 100; x = Math.trunc(x); x /= 100;
+    vi *= 100; vi = Math.trunc(vi); vi /= 100;
+    viy *= 100; viy = Math.trunc(viy); viy /= 100;
+    vix *= 100; vix = Math.trunc(vix); vix /= 100;
+    t *= 100; t = Math.trunc(t); t /= 100;
     if(safetyCheck()){
       a = NaN;
       x = NaN;
@@ -134,7 +134,7 @@ const Calculator = () => {
       width,
       height,
       xAxis: { domain: [-0.5, L * 1.1], label: "Distancia" },
-      yAxis: { domain: [-1, Math.max(h0, hf) * 1.1 ], label: "Altura" },
+      yAxis: { domain: [Math.min(h0, hf) - 1, Math.max(h0, hf) +1 ], label: "Altura" },
       title: "Trayectoria",
       grid: false,
       data: [
