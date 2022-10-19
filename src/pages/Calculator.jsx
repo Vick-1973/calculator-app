@@ -41,7 +41,7 @@ function solve1(){
 }
 
 const Calculator = () => {
-  const { currentColor, setActiveGraph, activeGraph } = useStateContext();
+  const { currentColor, setActiveGraph, activeGraph, activeMenu } = useStateContext();
   const [masa, setMasa] = useState('');
   const [gravedad, setGravedad] = useState('');
   const [constante, setConstante] = useState('');
@@ -155,9 +155,11 @@ const Calculator = () => {
 
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 dark:bg-gray-800 bg-white rounded-xl flex" style={{}}>
-      <div className="absolute ">
+      <div>
+      <div className="absolute" style={{width:(w * 0.9 - (activeMenu ? 288 : 0))}}>
       <Header title="Calculator" />
       <hr className=""/>
+      </div>
       </div>
       <div className="float-left relative mt-20">
       <form onSubmit={submissionHandler} ref={Form}>
