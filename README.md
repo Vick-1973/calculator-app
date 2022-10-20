@@ -1,4 +1,4 @@
-# Rotas calculator
+# ⬠ Rotas calculator
 
 Website for calculating the necessary angle and compression for a projectile in a spring cannon to reach a given objective.
 
@@ -14,9 +14,55 @@ It is available on [Rotas-Calculator](https://rotas-calculator.web.app).
 
 ## Documentation
 
-Being fundamentally a react app, the Rotas site code is divided between pages and components in order to improve performance and avoid innecessary repetition. The [src](https://github.com/arepo90/calculator-app/tree/main/src) folder contains said directories. It should be noted that the .css files have limited default parameters, and the main styles are applied from javascript by using Tailwind. The [components](https://github.com/arepo90/calculator-app/tree/main/src/components) folder contains website-related code, such as the navbar and sidebar sections for navigating the different pages, while the main algorithm for the calculator is contained in the main function of the [Calculator.jsx](https://github.com/arepo90/calculator-app/blob/main/src/pages/Calculator.jsx) file. The procedure it follows is explained in the Math section, though coding wise it is simply a quadratic equation solver with the parameters received by user input.
+Being fundamentally a react app, the Rotas site code is divided between pages and components in order to improve performance and avoid unnecessary repetition. The [src](https://github.com/arepo90/calculator-app/tree/main/src) directory contains the base code, while the [build](https://github.com/arepo90/calculator-app/tree/main/public) directory holds the production optimized code. It should be noted that, though there are some .css files, they have limited default parameters, and the main styles are applied from the .jsx files by using Tailwind.
 
-Navigation between the pages is handled by [react-router-dom](https://reactrouter.com/en/main) through client side routing instead of redirects, thus handling different URL's while only using one base webpage. A [context provider](https://github.com/arepo90/calculator-app/blob/main/src/contexts/ContextProvider.js) is used with the corresponding react components in order to manage the states of the website through the [ThemeSettings.jsx](https://github.com/arepo90/calculator-app/blob/main/src/components/ThemeSettings.jsx) component. The graphs and equations in the Calculator and Math sections are rendered by the function-plot and react-latex components respectively, and the simulator inframe is powered by a [Geogebra App](https://www.geogebra.org/m/BXBMnZPS) by Tom Walsh.
+### Context provider
+
+A component for handling site-wide settings, as an functional alternative to using [props](https://reactjs.org/docs/components-and-props.html) as component parameters. It handles the current main color, theme, state, and whether certain components are shown or not.
+
+### Components
+
+All components use the context provider as a means to modify or read the current theme and main color. 
+
+#### Header
+
+Reusable standard header title component styled with tailwind. The title is passed as a parameter to the function.
+
+#### Navbar
+
+Top navigation bar with a button to toggle the sidebar and the site logo.
+
+#### Sidebar
+
+Page titles and addresses are rendered from the links.js file, again with the use of [react-router-dom](https://reactrouter.com/en/main) for in-site navigation between said pages. The navigation refers to client-side routing, rather than regular redirects, thus having different URL's from a single base webpage.
+
+#### ThemeSettings
+
+A simple settings page for changing the theme and current main color, handled by the context provider.
+
+#### Index
+
+Brief file for exporting the components to the rest of the webpage.
+
+### Pages
+
+All pages use the context provider for fetching the current theme and main color.
+
+#### Calculator
+
+Main page. Collects user input and handles the computations described in the Math page. A graph is rendered with [function-plot](https://github.com/mauriciopoppe/function-plot) showing the path of the projectile.
+
+#### Math
+
+Explanation of the mathematical procedures behind the solution. Equations are renderd in LaTeX by [react-latex](https://github.com/zzish/react-latex).
+
+#### Simulator
+
+A simple page for rendering an inframe of a [Geogebra App](https://www.geogebra.org/m/BXBMnZPS) (by Tom Walsh). No specific purpose other than testing and checking the solution.
+
+#### About
+
+General information and FAQ's.
 
 ## Author
 
