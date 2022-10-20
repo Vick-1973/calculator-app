@@ -1,4 +1,4 @@
-# ⬠ Rotas calculator
+# ⬠ Rotas
 
 Website for calculating the necessary angle and compression for a projectile in a spring cannon to reach a given objective.
 
