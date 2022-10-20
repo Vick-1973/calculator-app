@@ -14,7 +14,7 @@ It is available on [Rotas-Calculator](https://rotas-calculator.web.app).
 
 ## Documentation
 
-Being fundamentally a react app, the Rotas site code is divided between pages and components in order to improve performance and avoid unnecessary repetition. The [src](https://github.com/arepo90/calculator-app/tree/main/src) directory contains the base code, while the [build](https://github.com/arepo90/calculator-app/tree/main/public) directory holds the production optimized code. It should be noted that, though there are some .css files, they have limited default parameters, and the main styles are applied from the .jsx files by using Tailwind.
+Being fundamentally a react app, the Rotas site code is divided between pages and components in order to improve performance and avoid unnecessary repetition. The [src](https://github.com/arepo90/calculator-app/tree/main/src) directory contains the base code, while the [public](https://github.com/arepo90/calculator-app/tree/main/public) directory holds the production optimized code. It should be noted that, though there are some .css files, they have limited default parameters, and the main styles are applied from the .jsx files by using Tailwind.
 
 ### Context provider
 
