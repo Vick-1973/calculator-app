@@ -14,3 +14,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Author
 
 Arepo - Esteban Martinez
+
+### Extra components
+
+- [function-plot](https://github.com/mauriciopoppe/function-plot)
+- [react-latex](https://github.com/zzish/react-latex)
