@@ -18,7 +18,7 @@ Being fundamentally a react app, the Rotas site code is divided between pages an
 
 ### Context provider
 
-A component for handling site-wide settings, as an functional alternative to using [props](https://reactjs.org/docs/components-and-props.html) as component parameters. It handles the current main color, theme, state, and whether certain components are shown or not.
+A component for handling site-wide settings, as a functional alternative to using [props](https://reactjs.org/docs/components-and-props.html) as component parameters. It handles the current main color, theme, state, and whether certain components are shown or not.
 
 ### Components
 
