@@ -31,7 +31,7 @@ const Simulator = () => {
     <div className="m-2 md:m-10 p-2 md:p-10 dark:bg-gray-800 bg-white rounded-xl">
       <Header title="Simulator" />
       <hr /><br />
-      <iframe src="https://www.geogebra.org/classic/vgxfzagp" className="w-full" style={{height: (height * 0.75)}}/>
+      <iframe src="https://www.geogebra.org/classic/vgxfzagp" className="w-full" style={{height: height}}/>
     </div>
   )
 };
