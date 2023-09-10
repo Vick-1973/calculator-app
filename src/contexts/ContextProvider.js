@@ -14,6 +14,7 @@ export const ContextProvider = ({ children }) => {
     const [currentMode, setCurrentMode] = useState('Dark');
     const [themeSettings, setThemeSettings] = useState(false);
     const [activeGraph, setActiveGraph] = useState(false);
+    const [sticky, setSticky] = useState("");
     
     const setMode = (e) => {
         setCurrentMode(e.target.value);
@@ -26,7 +27,7 @@ export const ContextProvider = ({ children }) => {
     };
     
     return (
-        <StateContext.Provider value={{ activeGraph, setActiveGraph, activeMenu, setActiveMenu, isClicked, setIsClicked, screenSize, setScreenSize, currentColor, currentMode, setMode, setColor, themeSettings, setThemeSettings }}>
+        <StateContext.Provider value={{ activeGraph, setActiveGraph, sticky, setSticky, activeMenu, setActiveMenu, isClicked, setIsClicked, screenSize, setScreenSize, currentColor, currentMode, setMode, setColor, themeSettings, setThemeSettings }}>
             {children}
         </StateContext.Provider>
     );

@@ -26,45 +26,46 @@ const About = () => {
         - ¿Para qué es esto?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        Rotas fue desarrollado como mi aportación al Concurso Open Doors de Ingenierías y Arquitectura (para la sección de tiro parabólico), organizado por la Universidad Panamericana, a pesar de que no pueda participar oficialmente este año. <a href="https://concursoopendoors.up.edu.mx" target="_blank" className="hover:underline" style={{color:currentColor}}>Más información</a>
+        Rotas fue desarrollado como mi aportación al <a href="https://concursoopendoors.up.edu.mx" target="_blank" className="hover:underline" style={{color:currentColor}}>Concurso Open Doors de Ingenierías y Arquitectura</a> (para la sección de tiro parabólico), organizado por la Universidad Panamericana. Además de la calculadora principal, puedes encontrar información sobre los procedimientos y un <NavLink action="replace" to={"/Simulator"} ><span className="hover:underline" style={{color:currentColor}}>Simulador</span>
+        </NavLink> para verificar los datos y realizar otros experimentos.
       </p>
 
       <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
-        - ¿Cómo hiciste la página?
+        - ¿Cómo está hecha la página?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        Esta página fue desarrollada en Javascript y HTML, usando las librerías de <a href="https://reactjs.org" target="_blank" className="hover:underline" style={{color:currentColor}}>React</a> y <a href="https://tailwindcss.com" target="_blank" className="hover:underline" style={{color:currentColor}}>TailwindCSS</a>, con ayuda adicional de <a href="https://mauriciopoppe.github.io/function-plot/" target="_blank" className="hover:underline" style={{color:currentColor}}>Function Plot</a> para las gráficas, <a href="https://github.com/zzish/react-latex" target="_blank" className="hover:underline" style={{color:currentColor}}>react-latex</a> para las ecuaciones en LaTeX, y <a href="https://firebase.google.com" target="_blank" className="hover:underline" style={{color:currentColor}}>Firebase</a> para el hosting. El código fuente es de uso libre y se encuentra <a href="https://github.com/arepo90/calculator-app" target="_blank" className="hover:underline" style={{color:currentColor}}>aquí</a>.
+        Esta página fue desarrollada en Javascript y HTML, con ayuda de <a href="https://reactjs.org" target="_blank" className="hover:underline" style={{color:currentColor}}>React</a> y <a href="https://tailwindcss.com" target="_blank" className="hover:underline" style={{color:currentColor}}>TailwindCSS</a>, además de algunos complementos como <a href="https://mauriciopoppe.github.io/function-plot/" target="_blank" className="hover:underline" style={{color:currentColor}}>Function Plot</a> para las gráficas, <a href="https://github.com/zzish/react-latex" target="_blank" className="hover:underline" style={{color:currentColor}}>react-latex</a> para las ecuaciones en LaTeX, y <a href="https://firebase.google.com" target="_blank" className="hover:underline" style={{color:currentColor}}>Firebase</a> para el hosting. El código fuente es de uso libre y se encuentra <a href="https://github.com/arepo90/calculator-app" target="_blank" className="hover:underline" style={{color:currentColor}}>aquí</a>.
       </p>
 
       <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
-        - ¿Cómo lo uso?
+        - ¿Cómo se usa?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        Ingresa los datos necesarios (con unidades del sistema internacional) en la sección de 
-        <NavLink action="replace" to={"/Calculator"} ><span className="hover:underline" style={{color:currentColor}}> Calculadora </span>
-        </NavLink>
-         y haz click en 'Submit'. El resultado principal se mostrará debajo de esto, y aparecerá una gráfica y resultados parciales del lado derecho. Puedes hacer click en 'Clear' para limpiar todos los datos.
+        La función principal de este programa se encuentra en <NavLink action="replace" to={"/Calculator"} ><span className="hover:underline" style={{color:currentColor}}>Calculator</span>
+        </NavLink>. Aqui puedes ingresar los datos necesarios (con unidades del sistema internacional) y hacer click en 'Submit' para ver los resultados. En caso de que no exista una solución posible, se mostrara 'NaN' en los resultados. Para hacer cambios, puedes modificar los datos directamente o hacer click en 'Clear' para limpiar todos los datos. 
       </p>
 
       <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
-        - ¿Por qué ese nombre?
+        - ¿Por qué se llama 'Rotas'?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        'Rotas' significa algo similar a 'Ruedas', en latin. Quisiera poder decir que hay algún otro significado detrás de porqué usé este nombre, pero la verdad solo lo elegí porque me gusta como suena.
+        Significa algo similar a 'Ruedas' en latin y aparece en el <a href="https://wikipedia.org/wiki/Sator_Square" target="_blank" className="hover:underline" style={{color:currentColor}}>Cuadrado Sator</a>, del cual también proviene mi pseudonimo, 'Arepo'. Fuera de eso, no tiene ningún otro significado.
       </p>
 
-      <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
-        - ¿Quién eres?
-      </p>
-      <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        Mi nombre es Esteban, aunque a veces usaré el pseudónimo de 'Arepo' en documentación y otras páginas. Soy un estudiante mexicano de preparatoria, y soy el autor y desarrollador de Rotas.
-      </p>
+  
 
       <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
         - ¿Porqué algunas partes está en inglés y otras en español?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        La verdad no lo se. Dado que este es un concurso en México, la información y mensajes importantes estarán en Español, pero tal vez los títulos de algunas secciones y la documentación no lo estén.
+        No hay razón. Algunos componentes y secciones son recicladas de otros proyectos míos, por lo que puede haber mezclas de idiomas.
+      </p>
+
+      <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
+        - ¿Cuánto tiempo tardaste en hacer el programa? / ¿Cuántos errores tiene todavía?
+      </p>
+      <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
+        Si.
       </p>
 
       <br /><br/>

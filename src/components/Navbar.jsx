@@ -39,7 +39,7 @@ const Navbar = () => {
     <div className="flex justify-between p-2 md:mx-6 relative">
       <NavButton title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color={currentColor} icon={<AiOutlineMenu />}/>
       <div className="flex justify-between items-center">
-          <Link to="/" className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+          <Link to="/" className="items-center gap-3 ml-3 mt-1 mb-1 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <img src={logo} className="w-10" /><span>Rotas</span>
           </Link>
       </div>

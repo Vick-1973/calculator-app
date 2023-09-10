@@ -2,11 +2,17 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Calculator, Math, About, Simulator } from './pages';
+import { Navbar, Footer, Sidebar, ThemeSettings, Scroll } from './components';
+import { Calculator, Math, About, Simulator, NotFound } from './pages';
 import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
+import {createBrowserHistory} from 'history'
+
+const history = createBrowserHistory();
+
+history.listen((location, action) => {
+    window.scrollTo(0, 0)
+})
 
 const App = () => {
     const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
@@ -34,22 +40,22 @@ const App = () => {
                     <div className={
                         `dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`
                     }>
-                        <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-                            <Navbar />
+                        <div className="sticky top-0 bg-main-bg dark:bg-zinc-900 w-full">
+                            <Navbar/>
                         </div>
 
                         <div>
                             {themeSettings && <ThemeSettings />}
-
+                            <Scroll>
                             <Routes>
                                 <Route path="/" element={<Calculator />} />
                                 <Route path="/calculator" element={<Calculator />} />
-
                                 <Route path="/math" element={<Math />} />
                                 <Route path="/about" element={<About />} />
-
                                 <Route path="/simulator" element={<Simulator />} />
+                                <Route path="*" element={<NotFound />} />
                             </Routes>
+                            </ Scroll>
                         </div>
                     </div>
                 </div>

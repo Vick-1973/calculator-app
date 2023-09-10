@@ -6,6 +6,11 @@ body{
     font-family: "Open Sans", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 25px;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
