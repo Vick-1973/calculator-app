@@ -1,15 +1,16 @@
-import React from 'react'
+import React, {Component } from 'react'
 import { useStateContext } from '../contexts/ContextProvider';
 import { Header } from '../components';
 import { useState, useRef, useEffect } from 'react';
-import functionPlot from 'function-plot'
-import { setVirtualPageQuery } from '@syncfusion/ej2-react-grids';
+import functionPlot from 'function-plot';
 
 let m, g, k, L, hf, h0, h, t, vix, viy, vi, a, x, maxh;
 let x1, x2;
 
 function safetyCheck(){
   maxh = (Math.pow(vi, 2.0) / (-2*g)) - ((-1*g*Math.pow(L, 2.0)) / (2*Math.pow(vi, 2.0)));
+  console.log(maxh);
+  console.log(h);
   if(maxh > h){
     return false;
   }
@@ -133,14 +134,14 @@ const Calculator = () => {
       target: "#cosita",
       width,
       height,
-      xAxis: { domain: [-0.5, L * 1.1], label: "Distancia" },
-      yAxis: { domain: [Math.min(h0, hf) - 1, Math.max(h0, hf) +1 ], label: "Altura" },
+      xAxis: { domain: [(L > 5 ? -1 : -0.2), L * 1.1], label: "Distancia" },
+      yAxis: { domain: [Math.min(h0, Math.min(hf, 0)) -1 , Math.max(h0, hf) + 1 ], label: "Altura" },
       title: "Trayectoria",
       grid: false,
       data: [
         {
           fn: `${viy}*x/(${vix})+0.5*${g}*(x/(${vix}))^2+${h0}`,
-          color: `${currentColor}`
+          color: `${currentColor}`,
         },
         {
           points: [[0,h0], [L,hf]],
@@ -154,7 +155,7 @@ const Calculator = () => {
 
 
   return (
-    <div className="m-2 md:m-10 p-2 md:p-10 dark:bg-gray-800 bg-white rounded-xl flex" style={{}}>
+    <div className="m-2 md:m-10 p-2 md:p-10 dark:bg-gray-800 bg-white rounded-xl flex">
       <div>
       <div className="absolute" style={{width:(w * 0.9 - (activeMenu ? 288 : 0))}}>
       <Header title="Calculator" />
