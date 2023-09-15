@@ -67,6 +67,8 @@ const Calculator = () => {
     hf = Number(hef);
     h0 = Number(he0);
     L = Number(distancia);
+    if(g == 0) g = -0.001;
+    if(L == 0) L = 0.001;
     solve1();
     a *= 100; a = Math.trunc(a); a /= 100;
     x *= 100; x = Math.trunc(x); x /= 100;

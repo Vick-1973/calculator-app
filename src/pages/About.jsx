@@ -26,15 +26,22 @@ const About = () => {
         - ¿Para qué es esto?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        Rotas fue desarrollado como mi aportación al <a href="https://concursoopendoors.up.edu.mx" target="_blank" className="hover:underline" style={{color:currentColor}}>Concurso Open Doors de Ingenierías y Arquitectura</a> (para la sección de tiro parabólico), organizado por la Universidad Panamericana. Además de la calculadora principal, puedes encontrar información sobre los procedimientos y un <NavLink action="replace" to={"/Simulator"} ><span className="hover:underline" style={{color:currentColor}}>Simulador</span>
+        Esta página fue desarrollada como nuestra aportación al <a href="https://concursoopendoors.up.edu.mx" target="_blank" className="hover:underline" style={{color:currentColor}}>Concurso Open Doors de Ingenierías y Arquitectura</a> (para la sección de tiro parabólico), organizado por la Universidad Panamericana. Además de la calculadora principal, puedes encontrar información sobre los procedimientos y un <NavLink action="replace" to={"/Simulator"} ><span className="hover:underline" style={{color:currentColor}}>Simulador</span>
         </NavLink> para verificar los datos y realizar otros experimentos.
+      </p>
+
+      <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
+        - ¿Quiénes forman el equipo?
+      </p>
+      <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
+        Somos un equipo de 5° semestre de <a href="https://lincolnschool.edu.mx" target="_blank" className="hover:underline" style={{color:currentColor}}>Lincoln School</a>, formado por Esteban Martinez, Braulio Milanes y Veronica Hinojosa.
       </p>
 
       <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
         - ¿Cómo está hecha la página?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        Esta página fue desarrollada en Javascript y HTML, con ayuda de <a href="https://reactjs.org" target="_blank" className="hover:underline" style={{color:currentColor}}>React</a> y <a href="https://tailwindcss.com" target="_blank" className="hover:underline" style={{color:currentColor}}>TailwindCSS</a>, además de algunos complementos como <a href="https://mauriciopoppe.github.io/function-plot/" target="_blank" className="hover:underline" style={{color:currentColor}}>Function Plot</a> para las gráficas, <a href="https://github.com/zzish/react-latex" target="_blank" className="hover:underline" style={{color:currentColor}}>react-latex</a> para las ecuaciones en LaTeX, y <a href="https://firebase.google.com" target="_blank" className="hover:underline" style={{color:currentColor}}>Firebase</a> para el hosting. El código fuente es de uso libre y se encuentra <a href="https://github.com/arepo90/calculator-app" target="_blank" className="hover:underline" style={{color:currentColor}}>aquí</a>.
+        Esta página fue desarrollada en Javascript y HTML, con ayuda de <a href="https://reactjs.org" target="_blank" className="hover:underline" style={{color:currentColor}}>React</a> y <a href="https://tailwindcss.com" target="_blank" className="hover:underline" style={{color:currentColor}}>TailwindCSS</a>, además de algunos complementos como <a href="https://mauriciopoppe.github.io/function-plot/" target="_blank" className="hover:underline" style={{color:currentColor}}>Function Plot</a> para las gráficas, <a href="https://github.com/zzish/react-latex" target="_blank" className="hover:underline" style={{color:currentColor}}>react-latex</a> para las ecuaciones en LaTeX, <a href="https://firebase.google.com" target="_blank" className="hover:underline" style={{color:currentColor}}>Firebase</a> para el hosting y <a href="https://www.electronjs.org" target="_blank" className="hover:underline" style={{color:currentColor}}>Electron</a> para construir los ejecutables. El código fuente es de uso libre y se encuentra <a href="https://github.com/arepo90/calculator-app" target="_blank" className="hover:underline" style={{color:currentColor}}>aquí</a>.
       </p>
 
       <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
@@ -49,7 +56,7 @@ const About = () => {
         - ¿Por qué se llama 'Rotas'?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        Significa algo similar a 'Ruedas' en latin y aparece en el <a href="https://wikipedia.org/wiki/Sator_Square" target="_blank" className="hover:underline" style={{color:currentColor}}>Cuadrado Sator</a>, del cual también proviene mi pseudonimo, 'Arepo'. Fuera de eso, no tiene ningún otro significado.
+        Significa algo similar a 'Ruedas' en latin y aparece en el <a href="https://wikipedia.org/wiki/Sator_Square" target="_blank" className="hover:underline" style={{color:currentColor}}>Cuadrado Sator</a>. Fuera de eso, no tiene ningún otro significado.
       </p>
 
   
@@ -58,11 +65,11 @@ const About = () => {
         - ¿Porqué algunas partes está en inglés y otras en español?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
-        No hay razón. Algunos componentes y secciones son recicladas de otros proyectos míos, por lo que puede haber mezclas de idiomas.
+        No hay razón. Algunos componentes y secciones de la página web son recicladas de otros proyectos, por lo que puede haber mezclas de idiomas.
       </p>
 
       <p className="text-base font-extrabold tracking-tight text-slate-900 dark:text-white mt-5">
-        - ¿Cuánto tiempo tardaste en hacer el programa? / ¿Cuántos errores tiene todavía?
+        - ¿Cuánto tiempo tardaron en hacer el programa? / ¿Cuántos errores tiene todavía?
       </p>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white">
         Si.
@@ -75,7 +82,6 @@ const About = () => {
       <hr className="dark:border-gray-600"/>
       <p className="text-base font-medium tracking-tight text-slate-900 dark:text-white mt-5">
         - Arepo90@proton.me<br />
-        - nabetse069@gmail.com<br />
         - <a href="https://github.com/arepo90" target="_blank" className="hover:underline" style={{color:currentColor}}>Github</a>
       </p>
     </div> 
