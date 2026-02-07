@@ -67,6 +67,7 @@ General information and FAQ's.
 ## Author
 
 Arepo - Esteban Martinez
+
 Vick1973 - Braulio Milanés
 
 ### Extra components
